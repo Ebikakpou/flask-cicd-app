@@ -1,0 +1,10 @@
+.terraform/
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/aws/
+terraform/awscliv2.zip
+*.zip
+__pycache__/
+*.pyc
+.env
