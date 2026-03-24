@@ -13,6 +13,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: |
+          cd terraform
+          terraform init
+
+      - name: Terraform Apply
+        run: |
+          cd terraform
+          terraform apply -auto-approve
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+
+      # -------------------------
+      # Docker Build & Push
+      # -------------------------
       - name: Login to DockerHub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
@@ -22,6 +42,9 @@ jobs:
       - name: Push Docker image
         run: docker push ebikakpou/flask-cicd
 
+      # -------------------------
+      # Deploy to EC2
+      # -------------------------
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -32,4 +55,4 @@ jobs:
             docker stop flask-app || true
             docker rm flask-app || true
             docker pull ebikakpou/flask-cicd
-            docker run -d -p 8080:5000 --name flask-app ebikakpou/flask-cicd
+            docker run -d -p 80:5000 --name flask-app ebikakpou/flask-cicd
