@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return {"message": "CI/CD Pipeline is working "}
-print("Starting Flask app... new deployment successful!")
+print("Starting Flask app... new deployment successful!, AGAIN")
 
 @app.route("/health")
 def health():
