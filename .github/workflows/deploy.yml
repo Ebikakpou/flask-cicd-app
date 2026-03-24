@@ -32,4 +32,4 @@ jobs:
             docker stop flask-app || true
             docker rm flask-app || true
             docker pull ebikakpou/flask-cicd
-            docker run -d -p 80:5000 --name flask-app ebikakpou/flask-cicd
+            docker run -d -p 8080:5000 --name flask-app ebikakpou/flask-cicd
