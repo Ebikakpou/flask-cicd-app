@@ -18,4 +18,4 @@ terraform apply
 git push origin main
 
 ### 5. Access app
-http://54.242.35.197/8080
+http://54.242.35.197
