@@ -1,31 +1,21 @@
-# Flask CI/CD Pipeline with GitHub Actions, Docker & AWS
+### Deployment Instructions
 
-## Overview
-This project demonstrates a complete CI/CD pipeline for a Flask application using:
+### 1. Clone repo
+git clone https://github.com/your-username/flask-cicd-app
 
-- Docker (containerization)
-- GitHub Actions (CI/CD)
-- AWS EC2 (deployment)
-- Terraform (infrastructure provisioning)
+### 2. Setup Terraform
+cd terraform
+terraform init
+terraform apply
 
----
+### 3. Configure GitHub Secrets
+- DOCKER_USERNAME
+- DOCKER_PASSWORD
+- EC2_HOST
+- EC2_SSH_KEY
 
-## How It Works
+### 4. Push code to trigger CI/CD
+git push origin main
 
-1. Developer pushes code to GitHub
-2. GitHub Actions:
-   - Builds Docker image
-   - Pushes image to Docker Hub
-   - Connects to EC2 via SSH
-   - Pulls latest image
-   - Restarts container
-3. Application is updated automatically
-
----
-
-## Setup Instructions
-
-### 1. Clone the repo
-```bash
-git clone https://github.com/Ebikakpou/flask-cicd-app.git
-cd flask-cicd-app
+### 5. Access app
+http://<EC2_PUBLIC_IP>
