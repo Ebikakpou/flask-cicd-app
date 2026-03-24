@@ -1,7 +1,7 @@
 ### Deployment Instructions
 
 ### 1. Clone repo
-git clone https://github.com/your-username/flask-cicd-app
+git clone https://github.com/ebikakpou/flask-cicd-app
 
 ### 2. Setup Terraform
 cd terraform
