@@ -18,4 +18,4 @@ terraform apply
 git push origin main
 
 ### 5. Access app
-http://<EC2_PUBLIC_IP>
+http://54.242.35.197
