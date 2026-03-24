@@ -196,7 +196,7 @@ http://<EC2_PUBLIC_IP>
 ## 👨‍💻 Author
 
 Samuel Ebika Kpou
-DevOps Engineer | Digital Marketer
+DevOps Engineer
 
 ---
 
